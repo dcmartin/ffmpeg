@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/bin/bash 
 pushd nv-codec-headers && sudo make install && popd
 
 sudo apt update -qq -y
@@ -15,4 +14,4 @@ sudo apt install -qq -y build-essential yasm cmake libtool libc6 libc6-dev unzip
   --extra-cflags=-I/usr/local/cuda/include \
   --extra-ldflags=-L/usr/local/cuda/lib64
 
-make -j 10
+make -j 10 && sudo make install
