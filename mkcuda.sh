@@ -1,10 +1,8 @@
-#!/bin/bash
-if [ $(whoami) != 'root' ]; then echo "Run as root: sudo ${0} ${*}" > /dev/stderr; exit 1; fi
+#!/bin/bash 
+pushd nv-codec-headers && sudo make install && popd
 
-pushd nv-codec-headers && make install && popd
-
-apt update -qq -y
-apt install -qq -y build-essential yasm cmake libtool libc6 libc6-dev unzip wget libnuma1 libnuma-dev
+sudo apt update -qq -y
+sudo apt install -qq -y build-essential yasm cmake libtool libc6 libc6-dev unzip wget libnuma1 libnuma-dev
 
 ./configure \
   --enable-cuda-nvcc \
