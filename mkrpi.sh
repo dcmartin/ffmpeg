@@ -6,7 +6,6 @@ sudo apt install -qq -y automake checkinstall libsdl2-dev libva-dev libluajit-5.
 #apt install -qq -y build-essential yasm cmake libtool libc6 libc6-dev unzip wget libnuma1 libnuma-dev
 
 ./configure \
-  --prefix=/usr \
   --enable-gpl \
   --enable-nonfree \
   --enable-static \
@@ -17,11 +16,10 @@ sudo apt install -qq -y automake checkinstall libsdl2-dev libva-dev libluajit-5.
   --enable-mmal \
   --enable-libxcb \
   --enable-libfreetype \
-  --enable-libass \
   --enable-gnutls \
   --disable-opencl \
   --enable-libcdio \
   --enable-libbluray \
   --extra-cflags="-march=armv8-a+crc -mfpu=neon-fp-armv8 -mtune=cortex-a53" \
   
-make -j 4
+make -j 4 && sudo make install && sudo ldconfig
